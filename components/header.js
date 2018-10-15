@@ -46,6 +46,9 @@ function Header(props) {
         <Link prefetch href="/nosotros">
           <a className={`${props.active=="Nosotros"?"active":""}`}>Nosotros</a>
         </Link>
+        <Link prefetch href="/servicios">
+          <a className={`${props.active=="Servicios"?"active":""}`}>Servicios</a>
+        </Link>
         <Link prefetch href="/contacto">
           <a className={`${props.active=="Contacto"?"active":""}`}>Contacto</a>
         </Link>
@@ -70,7 +73,8 @@ function Header(props) {
           justify-self: right;
         }
         header a:hover{
-          font-weight: bold;
+          /*font-weight: bold;*/
+          border-bottom: 2px solid #fff;
         }
         .active{
         	font-weight: bold;
@@ -78,7 +82,7 @@ function Header(props) {
         }
         .navbar{
           display:grid;
-          grid-template-columns: 9fr 1fr 1fr 1fr;
+          grid-template-columns: 8fr 1fr 1fr 1fr 1fr;
           align-items:center;
         }
         img{

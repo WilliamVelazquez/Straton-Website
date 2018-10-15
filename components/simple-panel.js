@@ -2,22 +2,25 @@ import React from 'react';
 
 function SimplePanel(props) {
   return(
-    <div className="textContainer">
-      <p className="text">{props.text}</p>
+    <div className="textContainer" ref={props.setRef}>
+      <p className="title">{props.title}</p>
       {props.children}
       <style jsx>{`
         .textContainer{
           border-radius: 10px;
-          background: rgba(255,255,255,0.2);
+          background: #eaeaea;
           padding: 10px;
           margin: 0px 30px;
           height: 100%;
-          text-align: left;
-          color: #fff;
+          color: #052a4f;
+          text-align: center;
+          margin-bottom: 20px;
         }
-        .text{
-          margin:5px;
-          text-align: justify;
+        .title{
+          margin: 10px ;
+          font-weight: bold;
+          font-size: 24px;
+          text-align: left;
         }
       `}</style>
     </div>

@@ -17,7 +17,7 @@ function SocialNetworks(props) {
         type="button"
         target="_blank" 
         rel="noopener noreferrer" 
-        href={props.facebook || "https://www.facebook.com/HAYDConsulting/"}
+        href={props.facebook || ""}
       >
         <FontAwesomeIcon icon={ faFacebookF } />
       </a>
@@ -27,7 +27,7 @@ function SocialNetworks(props) {
         type="button"
         target="_blank" 
         rel="noopener noreferrer" 
-        href={props.twitter || "https://twitter.com/HaydConsulting"}
+        href={props.twitter || ""}
       >
         <FontAwesomeIcon icon={ faTwitter } />
       </a>
@@ -37,7 +37,7 @@ function SocialNetworks(props) {
         type="button"
         target="_blank" 
         rel="noopener noreferrer" 
-        href={props.instagram || "https://www.instagram.com/haydconsulting/"}
+        href={props.instagram || ""}
       >
         <FontAwesomeIcon icon={ faInstagram } />
       </a>
