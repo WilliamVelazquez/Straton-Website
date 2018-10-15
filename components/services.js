@@ -52,17 +52,17 @@ class Services extends Component {
           />
           <SimpleCard 
             title="Evaluación de proyectos"
-            img="foco.png"
+            img="evaluacion.png"
             handleClick={this.scrollToB}
           />
           <SimpleCard 
             title="Modelo de negocios"
-            img="foco.png"
+            img="modelo.png"
             handleClick={this.scrollToC}
           />
           <SimpleCard 
             title="Valuación de empresas"
-            img="foco.png"
+            img="valuacion.png"
             handleClick={this.scrollToD}
           />
         </div>
@@ -123,7 +123,7 @@ class Services extends Component {
             display: grid;
             grid-gap: 10px;
             grid-row-gap: 35px;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             margin-bottom: 40px;
           }
           .text{
@@ -140,8 +140,16 @@ class Services extends Component {
             img{
               width: 80%;
             }
+            .gridRow{
+              grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
           }
           @media only screen and (max-width : 667px) {
+            .text{
+              margin:10px;
+              text-align: justify;
+              font-size: 16px;
+            }
           }
         `}</style>
       </div>

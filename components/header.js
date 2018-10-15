@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 import IfOffline from '../containers/if-offline';
+import NavMenu from '../components/nav-menu';
 
 function Header(props) {
 	//console.log(props);
@@ -33,26 +34,17 @@ function Header(props) {
         <meta name="apple-mobile-web-apps-status-bar-style" content="black-translucent" />
       </Head>
       
-      <nav className="navbar">
+      <navbar className="navbar">
         <div className="left">
           <Link href="/">
             <img className="btn" src="/static/FullLogo_512_White.png" alt="Straton"/>
           </Link>  
             <div className="Offline"><IfOffline>Offline</IfOffline></div>
         </div>
-        <Link prefetch href="/">
-          <a className={`${props.active=="Inicio"?"active":""}`}>Inicio</a>
-        </Link>
-        <Link prefetch href="/nosotros">
-          <a className={`${props.active=="Nosotros"?"active":""}`}>Nosotros</a>
-        </Link>
-        <Link prefetch href="/servicios">
-          <a className={`${props.active=="Servicios"?"active":""}`}>Servicios</a>
-        </Link>
-        <Link prefetch href="/contacto">
-          <a className={`${props.active=="Contacto"?"active":""}`}>Contacto</a>
-        </Link>
-      </nav>
+
+        <NavMenu active={props.active}/>
+        
+      </navbar>
 
       <style jsx>{`
         header{
@@ -65,28 +57,13 @@ function Header(props) {
           right: 0;
           z-index: 99;
         }
-        header a{
-          text-decoration: none;
-          color: #fff;
-          font-size: 18px;
-          margin-right: 20px;
-          justify-self: right;
-        }
-        header a:hover{
-          /*font-weight: bold;*/
-          border-bottom: 2px solid #fff;
-        }
-        .active{
-        	font-weight: bold;
-          border-bottom: 2px solid #fff;
-        }
-        .navbar{
+        navbar{
           display:grid;
-          grid-template-columns: 8fr 1fr 1fr 1fr 1fr;
+          grid-template-columns: 2fr 1fr;
           align-items:center;
         }
         img{
-          width: 120px;
+          width: 110px;
         }
         .btn{
           cursor:pointer;
@@ -96,7 +73,7 @@ function Header(props) {
           float:left;
           display:grid;
           grid-auto-flow: column;
-          grid-template-columns: 125px 1fr;
+          grid-template-columns: 115px 1fr;
         }
         .left .Offline{
           margin:0;
@@ -112,10 +89,10 @@ function Header(props) {
             font-size:20px;
           }
           img{
-            width: 100px;
+            width: 95px;
           }
           .left{
-            grid-template-columns: 105px 1fr;
+            grid-template-columns: 100px 1fr;
           }
         }
         @media only screen and (max-width : 667px) {

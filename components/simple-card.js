@@ -19,6 +19,7 @@ function SimpleCard(props) {
           text-align: center;
           color: #052a4f;
           cursor: pointer;
+          display: grid;
         }
         .textContainer:hover{
           box-shadow: 0 2px 5px 0 rgba(0,0,0,0.5);
@@ -32,6 +33,8 @@ function SimpleCard(props) {
           width: 50%;
           /*height: 100px;*/
           object-fit: cover;
+          justify-self: center;
+          align-self: center;
         }
       `}</style>
     </div>
