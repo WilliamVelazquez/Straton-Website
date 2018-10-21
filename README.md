@@ -2,7 +2,7 @@
 
 Website for Straton Consulting developed with NextJS as a Progressive Web App
 
-[Live Website](https://straton-website-pyqrxneiyu.now.sh)
+[Live Website](https://straton-website-bnapmtaoyu.now.sh/)
 
 ![Home Page](./.readme-static/Home.png)
 

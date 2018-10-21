@@ -12,7 +12,8 @@ class Contacto extends Component{
     comments:'',
     askForCall:false,
     validName:true,
-    validEmail:true
+    validEmail:true,
+    validPhone:true
   }
 
   changeName = (event) => {
@@ -31,7 +32,8 @@ class Contacto extends Component{
 
   changePhone = (event) => {
     this.setState({
-      phone: event.target.value
+      phone: event.target.value,
+      validPhone: true
     });
   }
 
@@ -50,23 +52,33 @@ class Contacto extends Component{
   }
 
   validateEmail(email) {
-    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
+    let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return regex.test(String(email).toLowerCase());
+  }
+
+  validatePhone(phone) {
+    let havePhone = phone?true:false;
+    if(havePhone){
+      return (phone.length>7)?true:false;
+    }
+    return true;
   }
 
   validateForm = () => {
     //let valid = false;
     let validName = this.state.name.length>1;
     let validEmail = this.validateEmail(this.state.email);
+    let validPhone = this.validatePhone(this.state.phone);
     this.setState({
-      validName: validName,
-      validEmail: validEmail
+      validName,
+      validEmail,
+      validPhone
     });
     return (validName && validEmail);
   }
 
   handleSubmit = async () => {
-    console.log(this.state);
+    //console.log("State--->",this.state);
     let validForm=this.validateForm();
     if (validForm){
       const { name, email, phone, comments, askForCall } = this.state;
@@ -79,8 +91,9 @@ class Contacto extends Component{
       };
       console.log("Contact Data-->",data);
       const saveContact = await API.saveContactInfo(data);
+      console.log("saveContact-->",saveContact);
 
-      if(saveContact){
+      if(saveContact.success){
         this.setState({
           name:'',
           email:'',
@@ -88,13 +101,17 @@ class Contacto extends Component{
           comments:'',
           askForCall:false,
           validName:true,
-          validEmail:true
-        }, () => alert("Información enviada!"));
+          validEmail:true,
+          validPhone:true
+        }, () => alert(saveContact.msg));
       }
-      console.log("Información enviada!");
+      else{
+        // console.log(saveContact.msg);
+        alert(saveContact.msg);
+      }
     }
     else{
-      console.log("Información no válida!");
+      // console.log("Información no válida!");
       alert("Información no válida!");
     }
   }

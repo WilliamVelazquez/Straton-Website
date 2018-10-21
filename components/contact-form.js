@@ -7,7 +7,7 @@ import SocialNetworks from './social-networks';
 function ContactForm(props) {
   //console.log(props);
   return(
-    <div>
+    <div className="contactContainer">
       <TitleBand title="Contáctanos" position="center"/>
       
       <div className="container">
@@ -36,6 +36,7 @@ function ContactForm(props) {
               placeholder="Teléfono"
               value={props.phone}
               onChange={props.changePhone}
+              className={props.validPhone?"":"errorShadow"}
             />
 
             <textarea 
@@ -75,6 +76,10 @@ function ContactForm(props) {
       <SocialNetworks />
 
       <style jsx>{`
+        .contactContainer{
+          width:100%;
+          margin-top: -30px;
+        }
         .container{
           border-radius: 10px;
           background: #eaeaea;

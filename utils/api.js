@@ -22,16 +22,20 @@ class Api{
       }
       else{
         console.log("response-->",response);
+        const responseJSON2 = response.json();
+        console.log("responseJSON2-->",responseJSON);
         const responseJSON = await response.json();
         console.log("responseJSON-->",responseJSON);
+        return { success:true, msg:"Información enviada!"}
       }
     } catch (error) {
       console.log("Error: " + error);
       //this.setState({loading:false});
+      return { success:false, msg:"Error al enviar la Información :(\nFavor de intentar nuevamente"}
     }
     //const query = await fetch(`${BASE_API}contact/saveNewContact?data?${data}`);
     //const data = query.json();
-    return true;
+    //return true;
   }
 }
 

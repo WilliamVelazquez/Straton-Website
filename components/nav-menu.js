@@ -84,7 +84,7 @@ class NavMenu extends Component{
           .navNarrow{
             display: none;
             grid-template-columns: 1fr;
-            background: #112a4f;
+            background: #052A4F;
             top: 0;
             right: 0;
             padding: 10px;

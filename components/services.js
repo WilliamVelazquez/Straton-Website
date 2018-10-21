@@ -118,6 +118,7 @@ class Services extends Component {
         <style jsx>{`
           .container{
             width:100%;
+            margin-top: -30px;
           }
           .gridRow{
             display: grid;

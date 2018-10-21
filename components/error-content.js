@@ -31,6 +31,7 @@ function ErrorContent(props) {
           background: #eaeaea;
           padding: 10px;
           margin: 30px;
+          margin-top: -30px;
           height: 100%;
           text-align: center;
           color: #052a4f;
